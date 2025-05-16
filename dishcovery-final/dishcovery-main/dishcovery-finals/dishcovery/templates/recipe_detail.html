@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ recipe.name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='darkmode.js') }}" defer></script>
+</head>
+<body>
+    <div class="recipe-detail-container">
+        <h1>{{ recipe.name }}</h1>
+        <img src="{{ recipe.image }}" alt="{{ recipe.name }}">
+        <h2>Category: {{ recipe.category }}</h2>
+
+        <h3>Ingredients:</h3>
+        <ul>
+            {% for ingredient in recipe.ingredients %}
+                <li>{{ ingredient }}</li>
+            {% endfor %}
+        </ul>
+
+        <p class="recipe-instructions">{{ recipe.instructions }}</p>
+        <a href="{{ url_for('main') }}" class="back-btn">Back to Recipes</a>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

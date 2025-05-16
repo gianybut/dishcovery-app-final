@@ -1,0 +1,567 @@
+/* ✅ Keep styles from main.html */
+@import url('https://fonts.googleapis.com/css2?family=Arial:wght@300;400;700&display=swap');
+:root {
+    --base-color: white; /* Light mode background color */
+    --base-variant: #e8e9ed; /* Light mode secondary background */
+    --text-color: black; /* Light mode text color */
+    --secondary-color: #101011;
+    --primary-color: #3a435d;
+    --accent-color: #0071ff;
+}
+
+.darkmode {
+    --base-color: #484747; /* Dark mode background color */
+    --base-variant: #2f323d; /* Dark mode secondary background */
+    --text-color: white; /* Dark mode text color */
+    --secondary-color: #363641;
+    --primary-color: #3a435d;
+    --accent-color: #0073ff;
+}
+
+/* 🔹 Theme Switch Button */
+#theme-switch {
+    height: 50px;
+    width: 50px;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: var(--base-variant); /* Background color changes with mode */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    right: 15px;
+    margin: 35px;
+    z-index: 100; /* Ensure it appears above the header */
+}
+
+/* 🔹 Theme Switch Icon */
+#theme-switch svg {
+    fill: var(--primary-color); /* Icon color changes with mode */
+}
+
+#theme-switch svg:last-child {
+    display: none; /* Hide the dark mode icon by default */
+}
+
+.darkmode #theme-switch svg:first-child {
+    display: none; /* Hide the light mode icon in dark mode */
+}
+
+.darkmode #theme-switch svg:last-child {
+    display: block; /* Show the dark mode icon in dark mode */
+}
+
+/* Center the login container in the middle of the page */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensure the body takes up the full viewport height */
+    margin: 0; /* Remove default margin */
+    font-family: Arial, sans-serif; /* Optional: Set a default font */
+    background-color: var(--base-color);
+    color: var(--text-color);
+    flex-direction: column;
+    padding-top: 60px; /* Adjust this value to match the height of the header */
+}
+
+/* Fix the header at the top of the page */
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    background-color: #000000; /* Keep the existing background color */
+    width: 98%;
+    height: 60px;
+    position: fixed; /* Fix the header at the top */
+    top: 0; /* Position it at the very top */
+    left: 0; /* Align it to the left edge */
+    z-index: 1000; /* Ensure it stays above other content */
+    border-radius: 0 0 20px 20px; /* Keep the existing border radius */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9); /* Keep the existing shadow */
+}
+
+/* Style the navigation bar */
+nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+/* Style the logo */
+.nav-logo {
+    height: 100%; /* Make the logo fit the height of the nav */
+    max-height: 60px; /* Set a maximum height to prevent it from being too large */
+    width: auto; /* Maintain aspect ratio */
+    margin-right: 20px; /* Add spacing between the logo and the nav items */
+}
+
+/* Style the navigation links */
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+}
+
+/* Style the logout button */
+#logout-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #ff0000;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    align-self: center; /* Align the button vertically with other nav items */
+    margin-left: 5px; /* Reduce the left margin to move it closer to the navigation links */
+    margin-top: 5px; /* Adjust this value to move the button down slightly */
+}
+
+#logout-btn:hover {
+    background-color: #cc0000;
+    transform: scale(1.05);
+}
+
+/* 🔹 Search Bar */
+.search-section {
+    text-align: center;
+    margin: 30px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#search-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#ingredient-input {
+    width: 50%;
+    padding: 10px;
+    font-size: 1.2em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#filter-select {
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+#search-btn {
+    padding: 10px 15px;
+    font-size: 1.1em;
+    background-color: #000000;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* 🔹 Recipe & Recommendation Sections */
+.recommendation-section {
+    text-align: center;
+    margin-top: 30px;
+    width: 80%;
+}
+
+.recommendations-container, .recipes-container {
+    justify-content: center;
+    padding: 20px;
+    width: 80%;
+}
+
+/* 🔹 Recipe Grid Layout */
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 🔹 Recipe Card */
+.recipe-card {
+    background: var(--base-variant);
+    padding: 15px;
+    margin: 10px;
+    border-radius: 8px;
+    width: 250px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+}
+
+.recipe-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.recipe-card h3 {
+    font-size: 1.2em;
+}
+
+.recipe-card a {
+    display: inline-block;
+    text-decoration: none;
+    color: #8a8a8a;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: color 0.3s;
+}
+
+.recipe-card a:hover {
+    color: #ff0000;
+    text-decoration: underline;
+}
+
+/* Chatbot icon */
+#chatbot-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* Chatbot container */
+#chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    max-height: 400px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1000;
+    display: none; /* Initially hidden */
+}
+
+#chatbot-container.hidden {
+    display: none;
+}
+
+#chatbot-container.visible {
+    display: flex;
+}
+
+/* Chatbot messages */
+#chatbot-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.user-message, .bot-message {
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 80%;
+}
+
+.user-message {
+    background-color: #e0f7fa;
+    align-self: flex-end;
+}
+
+.bot-message {
+    background-color: #f1f1f1;
+    align-self: flex-start;
+}
+
+/* Chatbot input */
+#chatbot-input {
+    border: none;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    width: calc(100% - 20px);
+    box-sizing: border-box;
+}
+
+#chatbot-send {
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#chatbot-send:hover {
+    background-color: #0056b3;
+}
+
+/* 🔹 Login & Register Page Styling */
+.login-container {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Style the login container */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 400px; /* Adjust as needed */
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #fff; /* Adjust as needed */
+}
+
+/* Style the logo inside the login container */
+.login-container img {
+    width: 100%; /* Make the logo responsive */
+    max-width: 200px; /* Set a maximum width for the logo */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 20px; /* Add spacing below the logo */
+}
+
+/* 🔹 Input Fields */
+.login-container input {
+    width: 100%; /* Ensure the input fields take up the full width of the container */
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+/* 🔹 Login & Register Buttons */
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    font-weight: bold;
+}
+
+.login-container button:hover {
+    background-color: #e5533d;
+}
+
+/* 🔹 Error Message */
+#error-message {
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* 🔹 Register Link */
+.login-container p {
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+.login-container a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-container a:hover {
+    text-decoration: underline;
+}
+
+.favorite-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.favorite-btn img {
+    width: 24px;
+    height: 24px;
+}
+
+.favorite-btn.favorited img {
+    opacity: 1;
+}
+
+.favorite-btn {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.favorite-btn.favorited {
+    color: red;
+}
+
+.recipe-detail-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: var(--base-variant);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.recipe-detail-container h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.recipe-detail-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.recipe-detail-container h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.recipe-instructions {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: var(--base-variant);
+    background-color: var(--base-variant);
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.back-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Default styles */
+.recipe-detail-container {
+    background-color: var(--base-variant);
+    color: black;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode styles */
+.darkmode .recipe-detail-container {
+    background-color: var(--base-variant); /* Dark background */
+    color: var(--text-color);          /* Light text color */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Adjust shadow for dark mode */
+}
+
+.darkmode a.back-btn {
+    color: var(--text-color); /* Adjust link color for dark mode */
+}
+
+/* Default styles for recipe instructions */
+.recipe-instructions {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: var(--text-color); /* Use the text color variable */
+    background-color: var(--base-color); /* Use the base color variable */
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* Dark mode styles for recipe instructions */
+.darkmode .recipe-instructions {
+    color: var(--text-color); /* Light text color for dark mode */
+    background-color: var(--base-variant); /* Dark background for instructions */
+}
+
+.label-for-searchbar{
+    margin-top: 50px;
+}
+
+.login-body {
+    background-image: url("../images/dishcovery-background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: inherit;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    filter: blur(10px); /* Increased blur */
+    opacity: 1;
+    z-index: -1;
+    pointer-events: none;
+}

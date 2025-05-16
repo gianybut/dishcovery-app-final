@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='about_us/styles.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h1>About DishCovery</h1>
+            <p>The primary purpose of Dishcovery is to help users discover recipes based
+                on the ingredients they already have, and the app will suggest a list of recipes
+                they can make. This app makes it easy for users to avoid food waste,
+                discover new meal ideas, and cook meals that match their preferences or
+                available ingredients.</p>
+            <h2>Our Mission</h2>
+            <p>At DishCovery, we aim to bring the joy of cooking and discovering new recipes to everyone. Whether you're a seasoned chef or a beginner, our platform is here to inspire your culinary journey.</p>
+        </section>
+        <section>
+            <h2>What We Offer</h2>
+            <ul>
+                <li>• Access to a wide variety of recipes from around the world.</li>
+                <li>• Personalized recipe recommendations.</li>
+                <li>• Ability to save your favorite recipes for easy access.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Contact Us</h2>
+            <p>If you have any questions or feedback, feel free to reach out to us at <a href="mailto:support@dishcovery.com">support@dishcovery.com</a>.</p>
+        </section>
+        <section>
+            <h2>Meet the Developers</h2>
+            <div class="developers">
+                <div class="developer">
+                    <img src="{{ url_for('static', filename='images/dev1.png') }}" alt="Developer 1">
+                    <h3>Gian Paolo Ybut</h3>
+                    <p>Front End Developer.
+                        <br>Favorite Dish: Sinigang Na Baboy</bt>
+                    </p>
+                </div>
+                <div class="developer">
+                    <img src="{{ url_for('static', filename='images/dev2.jpg') }}" alt="Developer 2">
+                    <h3>Aeron Romasanta</h3>
+                    <p>Front End Developer.
+                        <br>Favorite Dish: Dinuguan</bt>
+                    </p>
+                </div>
+                <div class="developer">
+                    <img src="{{ url_for('static', filename='images/dev3.jpg') }}" alt="Developer 3">
+                    <h3>Janmikael Samson</h3>
+                    <p>Back End Developer.
+                        <br>Favorite Dish: Pork Giniling</bt>
+                    </p>
+                    
+                </div>
+                <div class="developer">
+                    <img src="{{ url_for('static', filename='images/dev4.jpeg') }}" alt="Developer 4">
+                    <h3>Kyle Cedric Panganiban</h3>
+                    <p>Back End Developer.
+                        <br>Favorite Dish: Tapsilog</bt>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 DishCovery. All rights reserved.</p>
+    </footer>
+</body>
+</html>
